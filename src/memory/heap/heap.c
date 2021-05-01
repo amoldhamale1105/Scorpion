@@ -132,7 +132,7 @@ void heap_mark_blocks_taken(struct heap* heap, int start_block, int total_blocks
     }
 }
 
-void* heap_malloc_blocks(struct heap* heap, size_t total_blocks)
+void* heap_malloc_blocks(struct heap* heap, uint32_t total_blocks)
 {
     void* address = 0;
     
