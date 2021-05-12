@@ -22,6 +22,18 @@ int strnlen(const char* ptr, int max)
     return len;
 }
 
+char* strcpy(char* dest, const char* src)
+{
+    char* res = dest;
+    while (*src != 0)
+    {
+        *dest++ = *src++;
+    }
+    *dest = 0;
+
+    return res;
+}
+
 bool isdigit(char c)
 {
     return c >= 48 && c <= 57;
