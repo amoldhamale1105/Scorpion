@@ -13,7 +13,13 @@ struct disk
     SCORPION_DISK_TYPE type;
     int sector_size;
 
+    //ID of the disk
+    int id;
+
     struct filesystem* filesystem;
+
+    //The private data of filesystem
+    void* fs_private;
 };
 
 void disk_search_and_init();

@@ -41,6 +41,7 @@ void disk_search_and_init()
     memset(&disk, 0, sizeof(disk));
     disk.type = SCORPION_DISK_TYPE_REAL;
     disk.sector_size = SCORPION_SECTOR_SIZE;
+    disk.id = 0;
     disk.filesystem = fs_resolve(&disk);
 }
 
