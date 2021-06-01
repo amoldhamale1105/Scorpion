@@ -102,8 +102,14 @@ void kernel_main()
     {
         print("\nI opened hello.txt\n");
         char buf[16];
-        fread(buf, 15, 1, fd);
         buf[15] = 0;
+        
+        fseek(fd, 2, SEEK_SET);
+        fread(buf, 15, 1, fd);
+        print(buf);
+
+        fseek(fd, 5, SEEK_CUR);
+        fread(buf, 15, 1, fd);
         print(buf);
     }
 
