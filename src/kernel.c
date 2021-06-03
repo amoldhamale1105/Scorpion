@@ -102,6 +102,9 @@ void kernel_main()
     if (fd)
     {
         fstat(fd, &s);
+        fclose(fd);
+
+        print("testing\n");
     }
 
     while (1) {}
