@@ -18,7 +18,7 @@ static struct filesystem** fs_get_free_filesystem()
     {
         if (filesystems[i] == 0)
         {
-            return filesystems + i;
+            return &filesystems[i];
         }
     }
 

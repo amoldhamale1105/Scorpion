@@ -8,7 +8,7 @@
 struct idt_desc idt_descriptors[SCORPION_TOTAL_INTERRUPTS];
 struct idtr_desc idtr_descriptor;
 
-static ISR80H_COMMAND isr80h_commands[SCORPION_MAX_ISR80_COMMANDS];
+static ISR80H_COMMAND isr80h_commands[SCORPION_MAX_ISR80H_COMMANDS];
 
 extern void idt_load(struct idtr_desc* ptr);
 extern void int21h();
@@ -61,7 +61,7 @@ void idt_init()
 
 void isr80h_register_command(int command_id, ISR80H_COMMAND command)
 {
-    if (command_id <= 0 || command_id >= SCORPION_MAX_ISR80_COMMANDS)
+    if (command_id < 0 || command_id >= SCORPION_MAX_ISR80H_COMMANDS)
     {
         panic("The command is out of bounds\n");
     }
@@ -78,7 +78,7 @@ void* isr80h_handle_command(int command, struct interrupt_frame* frame)
 {
     void* result = 0;
 
-    if (command <= 0 || command >= SCORPION_MAX_ISR80_COMMANDS)
+    if (command < 0 || command >= SCORPION_MAX_ISR80H_COMMANDS)
     {
         //Invalid command
         return 0;

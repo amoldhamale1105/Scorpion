@@ -49,7 +49,7 @@ isr80h_wrapper:
     ; uint32 sp
     ; uint32 ss
     ; Pushad pushes general purpose registers to the stack
-    pushd
+    pushad
 
     ; Interrupt frame end
 
