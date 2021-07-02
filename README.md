@@ -2,8 +2,6 @@
 A multi-threaded kernel built in protected mode for the x86 architecture
 
 # Build and test instructions
-The current version of the kernel code is WIP. It jumps infinitely once loaded at 1M in memory  
-gcc cross compiler is built for the kernel  
-execute the shell script build.sh to set the env variables needed for the cross compiler and generate the os.bin using make config  
-load the binary in the qemu emulator using qemu-system-x86_64 -hda ./os.bin  
-No output seen at the current dev stage since the kernel jumps infinitely after loading.  
+The current version of the kernel code is WIP. ReadMe is NOT UP TO DATE. Will be updated soon  
+For now, please follow the commit history on this project to get an idea of the progress and the point at which the kernel is  
+Feel free to drop in suggesstions if any
