@@ -6,6 +6,7 @@
 #include "memory/memory.h"
 #include "string/string.h"
 #include "memory/paging/paging.h"
+#include "loader/formats/elfloader.h"
 #include "idt/idt.h"
 
 //Current task that is running
@@ -211,6 +212,11 @@ int task_init(struct task* task, struct process* process)
     }
 
     task->registers.ip = SCORPION_PROGRAM_VIRTUAL_ADDRESS;
+    if (process->filetype == PROCESS_FILETYPE_ELF)
+    {
+        task->registers.ip = elf_header(process->elf_file)->e_entry;
+    }
+    
     task->registers.ss = USER_DATA_SEGMENT;
     task->registers.cs = USER_CODE_SEGMENT;
     task->registers.esp = SCORPION_PROGRAM_VIRTUAL_STACK_ADDRESS_START;
