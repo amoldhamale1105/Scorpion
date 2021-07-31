@@ -5,6 +5,11 @@
 #include "task.h"
 #include "config.h"
 
+#define PROCESS_FILETYPE_ELF 0
+#define PROCESS_FILETYPE_BINARY 1
+
+typedef unsigned char PROCESS_TYPE;
+
 struct process
 {
     //The process id
@@ -18,8 +23,14 @@ struct process
     //The memory malloc allocations of the process
     void* allocations[SCORPION_MAX_PROGRAM_ALLOCATIONS];
 
-    //The physical pointer to process memory
-    void* ptr;
+    PROCESS_TYPE filetype;
+
+    union
+    {
+        //The physical pointer to process memory
+        void* ptr;
+        struct elf_file* elf_file;
+    };
 
     //The physical pointer to stack memory
     void* stack;

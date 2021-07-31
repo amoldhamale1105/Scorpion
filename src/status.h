@@ -10,4 +10,6 @@
 #define ERDONLY 6
 #define EUNIMP 7 //unimplemented
 #define EISTKN 8 //is taken?
+#define EINFORMAT 9
+
 #endif
