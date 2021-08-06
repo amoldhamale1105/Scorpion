@@ -1,4 +1,4 @@
-FILES=./build/start.o
+FILES=./build/start.o ./build/scorpion.o
 INCLUDES=
 
 all: $(FILES)
@@ -6,6 +6,9 @@ all: $(FILES)
 
 ./build/start.o: ./src/start.asm
 	nasm -f elf ./src/start.asm -o ./build/start.o
+
+./build/scorpion.o: ./src/scorpion.asm
+	nasm -f elf ./src/scorpion.asm -o ./build/scorpion.o
 
 clean:
 	rm -rf $(FILES)
