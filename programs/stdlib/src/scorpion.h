@@ -6,5 +6,6 @@
 void print(const char* message);
 int getkey();
 void* scorpion_malloc(size_t size);
+void scorpion_free(void* ptr);
 
 #endif

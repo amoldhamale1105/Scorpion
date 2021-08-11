@@ -1,8 +1,11 @@
 [BITS 32]
 
+section .asm
+
 global print:function
 global getkey:function
 global scorpion_malloc:function
+global scorpion_free:function
 
 ; void print(const char* message)
 print:
@@ -32,5 +35,16 @@ scorpion_malloc:
     push dword[ebp+8] ; variable size pushed to stack
     int 0x80
     add esp, 4 ; restore the stack
+    pop ebp
+    ret
+
+; void scorpion_free(void* ptr)
+scorpion_free:
+    push ebp
+    mov ebp, esp
+    mov eax, 5 ; command free
+    push dword[ebp+8]
+    int 0x80
+    add esp, 4
     pop ebp
     ret
