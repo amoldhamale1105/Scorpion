@@ -4,10 +4,8 @@
 
 int main(int argc, char** argv)
 {
-    print("Hello how are you?\n");
-    print(itoa(97343));
-    putchar('Z');
-    
+    printf("Hello, I am %i years old\n", 116);
+
     void* ptr = malloc(512);
     free(ptr);
     
