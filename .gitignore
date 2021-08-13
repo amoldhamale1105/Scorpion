@@ -1,3 +1,4 @@
 # ignore all binary and object files
 *.bin
+*.elf
 *.o

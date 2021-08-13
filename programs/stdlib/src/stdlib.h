@@ -1,5 +1,5 @@
-#ifndef STDLIB_H
-#define STDLIB_H
+#ifndef SCORPION_STDLIB_H
+#define SCORPION_STDLIB_H
 
 #include <stddef.h>
 
