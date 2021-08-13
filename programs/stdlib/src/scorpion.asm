@@ -3,7 +3,7 @@
 section .asm
 
 global print:function
-global getkey:function
+global scorpion_getkey:function
 global scorpion_malloc:function
 global scorpion_free:function
 global scorpion_putchar:function
@@ -19,8 +19,8 @@ print:
     pop ebp
     ret
 
-; int getkey()
-getkey:
+; int scorpion_getkey()
+scorpion_getkey:
     push ebp
     mov ebp, esp
     mov eax, 2 ; command getkey

@@ -1,4 +1,4 @@
-FILES=./build/start.o ./build/scorpion.o ./build/stdlib.o ./build/stdio.o
+FILES=./build/start.o ./build/scorpion.asm.o ./build/scorpion.o ./build/stdlib.o ./build/stdio.o
 INCLUDES=-I./src
 FLAGS= -g -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc
 
@@ -8,11 +8,14 @@ all: $(FILES)
 ./build/start.o: ./src/start.asm
 	nasm -f elf ./src/start.asm -o ./build/start.o
 
-./build/scorpion.o: ./src/scorpion.asm
-	nasm -f elf ./src/scorpion.asm -o ./build/scorpion.o
+./build/scorpion.asm.o: ./src/scorpion.asm
+	nasm -f elf ./src/scorpion.asm -o ./build/scorpion.asm.o
 
 ./build/stdlib.o: ./src/stdlib.c
 	i686-elf-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/stdlib.c -o ./build/stdlib.o
+
+./build/scorpion.o: ./src/scorpion.c
+	i686-elf-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/scorpion.c -o ./build/scorpion.o
 
 ./build/stdio.o: ./src/stdio.c
 	i686-elf-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/stdio.c -o ./build/stdio.o
