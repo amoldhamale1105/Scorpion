@@ -11,6 +11,7 @@ int main(int argc, char** argv)
         print("\n> ");
         char buf[1024];
         scorpion_terminal_readline(buf, sizeof(buf), true);
+        scorpion_process_load_start(buf);
     }
     return 0;
 }

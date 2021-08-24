@@ -7,6 +7,7 @@ global scorpion_getkey:function
 global scorpion_malloc:function
 global scorpion_free:function
 global scorpion_putchar:function
+global scorpion_process_load_start:function
 
 ; void print(const char* message)
 print:
@@ -55,6 +56,17 @@ scorpion_free:
     push ebp
     mov ebp, esp
     mov eax, 5 ; command free
+    push dword[ebp+8]
+    int 0x80
+    add esp, 4
+    pop ebp
+    ret
+
+; void scorpion_process_load_start(const char* filename)
+scorpion_process_load_start:
+    push ebp
+    mov ebp, esp
+    mov eax, 6 ; command 6 to start a process
     push dword[ebp+8]
     int 0x80
     add esp, 4

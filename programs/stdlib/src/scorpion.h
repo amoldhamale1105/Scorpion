@@ -11,5 +11,6 @@ void scorpion_free(void* ptr);
 void scorpion_putchar(char c);
 int scorpion_getkeyblock();
 void scorpion_terminal_readline(char* out, int max, bool output_while_typing);
+void scorpion_process_load_start(const char* filename);
 
 #endif
