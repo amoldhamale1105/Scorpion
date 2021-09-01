@@ -8,6 +8,7 @@ global scorpion_malloc:function
 global scorpion_free:function
 global scorpion_putchar:function
 global scorpion_process_load_start:function
+global scorpion_process_get_arguments:function
 
 ; void print(const char* message)
 print:
@@ -68,6 +69,17 @@ scorpion_process_load_start:
     mov ebp, esp
     mov eax, 6 ; command 6 to start a process
     push dword[ebp+8]
+    int 0x80
+    add esp, 4
+    pop ebp
+    ret
+
+;void scorpion_process_get_arguments(struct process_arguments* arguments)
+scorpion_process_get_arguments:
+    push ebp
+    mov ebp, esp
+    mov eax, 8 ; command 8 to get process args
+    push dword[ebp+8] ; variable arguments
     int 0x80
     add esp, 4
     pop ebp
