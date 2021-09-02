@@ -5,7 +5,12 @@
 
 int main(int argc, char** argv)
 {
-    print(argv[0]);
+    for(int i = 0; i < argc; i++)
+    {
+        printf("%s\n", argv[i]);
+    }
+
+    print("some statement in blank.c");
     while(1) 
     {
     }

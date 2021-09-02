@@ -9,6 +9,7 @@ global scorpion_free:function
 global scorpion_putchar:function
 global scorpion_process_load_start:function
 global scorpion_process_get_arguments:function
+global scorpion_system:function
 
 ; void print(const char* message)
 print:
@@ -68,6 +69,17 @@ scorpion_process_load_start:
     push ebp
     mov ebp, esp
     mov eax, 6 ; command 6 to start a process
+    push dword[ebp+8]
+    int 0x80
+    add esp, 4
+    pop ebp
+    ret
+
+;int scorpion_system(struct command_argument* arguments)
+scorpion_system:
+    push ebp
+    mov ebp, esp
+    mov eax, 7 ;command 7 runs a system command based on the arguments
     push dword[ebp+8]
     int 0x80
     add esp, 4
