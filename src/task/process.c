@@ -211,6 +211,8 @@ int process_terminate(struct process* process)
     // Unlink the process from the process array
     process_unlink(process);
 
+    print("The process was terminated because of an exception!\n");
+
 out:
     return res;
 }

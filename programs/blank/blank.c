@@ -10,7 +10,10 @@ int main(int argc, char** argv)
         printf("%s\n", argv[i]);
     }
 
-    print("some statement in blank.c");
+    // Meant to create an exception
+    char* ptr = (char*)0;
+    *ptr = 0x50;
+
     while(1) 
     {
     }
