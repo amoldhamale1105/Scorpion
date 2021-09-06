@@ -10,12 +10,5 @@ int main(int argc, char** argv)
         printf("%s\n", argv[i]);
     }
 
-    // Meant to create an exception
-    char* ptr = (char*)0;
-    *ptr = 0x50;
-
-    while(1) 
-    {
-    }
     return 0;
 }

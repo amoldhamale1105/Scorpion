@@ -10,6 +10,7 @@ global scorpion_putchar:function
 global scorpion_process_load_start:function
 global scorpion_process_get_arguments:function
 global scorpion_system:function
+global scorpion_exit:function
 
 ; void print(const char* message)
 print:
@@ -94,5 +95,14 @@ scorpion_process_get_arguments:
     push dword[ebp+8] ; variable arguments
     int 0x80
     add esp, 4
+    pop ebp
+    ret
+
+;void scorpion_exit()
+scorpion_exit:
+    push ebp
+    mov ebp, esp
+    mov eax, 9
+    int 0x80
     pop ebp
     ret

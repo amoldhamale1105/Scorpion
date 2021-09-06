@@ -28,5 +28,6 @@ struct command_argument* scorpion_parse_command(const char* command, int max);
 void scorpion_process_get_arguments(struct process_arguments* arguments);
 int scorpion_system(struct command_argument* arguments);
 int scorpion_system_run(const char* command);
+void scorpion_exit();
 
 #endif
