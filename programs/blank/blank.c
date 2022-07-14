@@ -5,10 +5,14 @@
 
 int main(int argc, char** argv)
 {
-    for(int i = 0; i < argc; i++)
+    const char* outputStr = argc == 1 ? "without" : "with";
+    printf("Executing program %s %s arguments ", argv[0], outputStr);
+    
+    for(int i = 1; i < argc; i++)
     {
-        printf("%s\n", argv[i]);
+        printf("%s ", argv[i]);
     }
+    printf("\n");
 
     return 0;
 }
