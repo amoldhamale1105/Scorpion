@@ -106,6 +106,9 @@ Its time to run Scorpion OS using the output generated binaries in the previous 
 ```
 qemu-system-i386 -hda ./bin/scorpion.bin 
 ```
+Alternatively you will find the machine booting up to the following shell if testing on a physical machine if the bootable device is set correctly in the BIOS menu  
+
+![ScorpionShell](https://user-images.githubusercontent.com/78597991/180637755-a0ea0e61-bc85-4133-b6a4-4b64f3aa0c6e.png)
 
 A shell prompt should be activated with Scorpion Version on top left. You can now start typing at the shell. A sample program called `blank.elf` has been created and loaded on the Scorpion hard drive for it to be able to access.  
 Load the program into memory by executing the following on the Scorpion command prompt  
@@ -117,4 +120,7 @@ The program can also be loaded with arguments which can be handled by the ensuin
 > blank.elf 55 21 tree
 ```
 An output like this should be generated depending on whether the program is loaded with or without arguments:
+
+![ScorpionProgramExec](https://user-images.githubusercontent.com/78597991/180637779-1fff1046-a519-4509-aef9-9a86c94eb172.png)
+
 
