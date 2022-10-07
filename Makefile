@@ -3,11 +3,11 @@ INCLUDES = -I./src
 FLAGS = -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc
 
 all: ./bin/boot.bin ./bin/kernel.bin user_programs
-	rm -rf ./bin/os.bin
-	dd if=./bin/boot.bin >> ./bin/os.bin
-	dd if=./bin/kernel.bin >> ./bin/os.bin
-	dd if=/dev/zero bs=1048576 count=16 >> ./bin/os.bin
-	sudo mount -t vfat ./bin/os.bin /mnt/d
+	rm -rf ./bin/scorpion.bin
+	dd if=./bin/boot.bin >> ./bin/scorpion.bin
+	dd if=./bin/kernel.bin >> ./bin/scorpion.bin
+	dd if=/dev/zero bs=1048576 count=16 >> ./bin/scorpion.bin
+	sudo mount -t vfat ./bin/scorpion.bin /mnt/d
 	#Copy a file over
 	sudo cp ./hello.txt /mnt/d
 	sudo cp ./programs/blank/blank.elf /mnt/d
